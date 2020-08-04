@@ -15,11 +15,6 @@ import org.springframework.core.env.Environment;
  * Created by jt on 6/7/17.
  */
 @Configuration
-//@PropertySource({"classpath:datasource.properties", "classpath:jms.properties"})
-@PropertySources({
-        @PropertySource("classpath:datasource.properties"),
-        @PropertySource("classpath:jms.properties")
-})
 public class PropertyConfig {
 
     @Autowired
@@ -59,11 +54,5 @@ public class PropertyConfig {
         jmsBroker.setPassword(jmsPassoword);
         jmsBroker.setUrl(jmsUrl);
         return jmsBroker;
-    }
-
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer properties(){
-        PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer =new PropertySourcesPlaceholderConfigurer();
-        return  propertySourcesPlaceholderConfigurer;
     }
 }
